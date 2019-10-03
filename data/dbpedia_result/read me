@@ -1,0 +1,212 @@
+### en_ty_blocks.txt
+type 以及所有属于type的entity
+#  type_1
+#  entity_1(1)
+#  entity_1(2)
+#  entity_1(3)
+#  ...
+#  entity_1(n)
+#  ...
+#  type_m
+#  entity_m(1)
+#  entity_m(2)
+#  entity_m(3)
+#  ...
+#  entity_m(n)
+
+_____________________________________________
+
+### en_ty_blocks_statistic.txt
+#  type1 number_of_entities_belong_type1
+#  type2 number_of_entities_belong_type2
+#  ...
+#  typen number_of_entities_belong_typen
+
+_____________________________________________
+
+### en_en_re_blocks.txt
+#  en_en_re_blocks是entity和entity之间的关系里 统计的左边entity 对应的所有和其他entity之间的关系
+#  处理的文件是db_insnet_new
+#  对应的dict: en_en_d
+#  ###entity_1
+#  entity_1 r entity_1_right(1)
+#  entity_1 r entity_1_right(2)
+#  ...
+#  entity_1 r entity_1_right(n)
+#  ...
+#  ###entity_m
+#  entity_m r entity_m_right(1)
+#  entity_m r entity_m_right(2)
+#  ...
+#  entity_m r entity_m_right(n)
+
+
+_____________________________________________
+
+### en_en_re_blocks_re.txt
+
+#  en_en_re_blocks是entity和entity之间的关系里 统计的右边的entity 对应的所有和其他entity之间的关系
+#  处理的文件是db_insnet_new
+#  对应的dict: en_en_d_re
+#  ###entity_1
+#  entity_1_left(1) r entity_1
+#  entity_1_left(2) r entity_1
+#  ...
+#  entity_1_left(n) r entity_1
+#  ...
+#  ###entity_m
+#  entity_m_left(1) r entity_m
+#  entity_m_left(2) r entity_m
+#  ...
+#  entity_m_left(n) r entity_m
+
+
+_____________________________________________
+
+### blocks_final.txt
+#  blocks_final是属于同一个type内所有entity，这些entity之间的关系
+#  处理的文件是db_insnet_new，db_InsType_mini_new
+#  对应的dict: blocks_final_dic
+#  ###type1
+#  entity_belong_type1 r entity_belong_type1
+#  entity_belong_type1 r entity_belong_type1
+#  ...
+#  entity_belong_type1 r entity_belong_type1
+#  ...
+#  ###typem
+#  entity_belong_typem r entity_belong_typem
+#  entity_belong_typem r entity_belong_typem
+#  ...
+#  entity_belong_typem r entity_belong_typem
+
+
+_____________________________________________
+
+### blocks_final_count.txt
+#  blocks_final是属于同一个type内所有entity，这些entity之间的关系数目
+#  处理的文件是db_insnet_new，db_InsType_mini_new
+#  对应的dict: blocks_final_dic_count_end
+#  ###type1  number_of_relations_for_entities_which_belong_to_type1
+#  ###type2  number_of_relations_for_entities_which_belong_to_type2
+#  ###type3  number_of_relations_for_entities_which_belong_to_type3
+#  ...
+#  ###typem  number_of_relations_for_entities_which_belong_to_typem
+
+###
+_____________________________________________
+
+图2 是统计每个type里所有entity之间的关系数目
+
+图1 是上述关系数目的统计，可以看到有一半的type里的entity之间是没有关系的
+
+图3 是统计每个type里entity的数目
+
+_____________________________________________
+
+图3 和 ### en_ty_blocks_statistic.txt ### en_ty_blocks.txt 对应
+图1 ，图2 和 ### blocks_final.txt  ### blocks_final_count.txt 对应
+
+
+
+###
+_____________________________________________
+
+train_en_ty_blocks.txt 是
+读取的train_entity_typeG文件里的内容 然后保存的格式和en_ty_blocks.txt一样
+train_en_ty_blocks.txt这个文件是从db_InsType_mini_new.txt文件里抽取的85%的数据，
+抽取的时候保证，train_en_ty_blocks.txt文件里出现过的所有的entity被取到，
+同时也保证， train_en_ty_blocks.txt文件里出现过的所有的type被取到，
+
+
+241个type
+###
+_____________________________________________
+
+val_en_ty_blocks.txt 是
+读取的val_entity_typeG文件里的内容 然后保存的格式和en_ty_blocks.txt一样
+val_en_ty_blocks.txt这个文件是从db_InsType_mini_new.txt文件里抽取的10%的数据，
+抽取的时候保证，val_en_ty_blocks.txt文件里出现过的所有的entity被取到，
+同时也保证， val_en_ty_blocks.txt文件里出现过的所有的type被取到，
+
+
+167个type
+###
+_____________________________________________
+
+test_en_ty_blocks.txt 是
+读取的test_entity_typeG文件里的内容 然后保存的格式和en_ty_blocks.txt一样
+test_en_ty_blocks.txt这个文件是从db_InsType_mini_new.txt文件里抽取的5%的数据，
+抽取的时候保证，test_en_ty_blocks.txt文件里出现过的所有的entity被取到，
+同时也保证， test_en_ty_blocks.txt文件里出现过的所有的type被取到，
+
+
+135个type
+###
+_____________________________________________
+
+
+ffinal_en_relation_order.txt 是
+把entity之间所有的关系随机打乱，然后排序
+id1 relation1
+id2 relation2
+id3 relation3
+...
+idm relationm
+_____________________________________________
+
+ffinal_ty_relation_order.txt   是
+把type之间所有的关系随机打乱，然后排序
+id1 relation1
+id2 relation2
+id3 relation3
+...
+idm relationm
+
+_____________________________________________
+
+final_entity_order.txt  是
+把所有的entity随机打乱，然后排序
+id1 entity1
+id2 entity2
+id3 entity3
+...
+idm entitym
+
+_____________________________________________
+
+final_type_order.txt 是
+把所有的type随机打乱，然后排序
+id1 type1
+id2 type2
+id3 type3
+...
+idm typem
+
+_____________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
